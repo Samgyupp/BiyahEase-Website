@@ -243,7 +243,7 @@ img {
     gap: 40px;
     max-width: 1300px;
     margin: 0 auto;
-    padding: 110px 6% 130px;
+    padding: 155px 6% 176px;
     z-index: 1;
 }
 
@@ -281,29 +281,41 @@ img {
 }
 
 .biya-sign {
-    width: 200px;
+    width: 220px;
     max-width: 60%;
+    margin-left: 30px;
     height: auto;
     display: block;
-    animation: fly 3.5s ease-in-out infinite;
+    transform-origin: left top;
+    animation: fly-sign 3.5s ease-in-out infinite;
+}
+
+@keyframes fly-sign {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg) scale(1.45);
+    }
+    50% {
+        transform: translateY(-18px) rotate(3deg) scale(1.45);
+    }
 }
 
 .features-visual {
-    position: relative;
-    flex: 1 1 560px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 300px;
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    width: 54%;
+    max-width: 760px;
+    transform: translateY(-50%);
     z-index: 1;
+    pointer-events: none;
 }
 
 .app-phone {
-    width: 100%;
-    max-width: 600px;
+    width: 150%;
     height: auto;
     display: block;
-    transform: rotate(-8deg);
+    --phone-progress: 0;
+    transform: translateX(calc(-130% + var(--phone-progress) * 130%)) rotate(-25deg);
     filter: drop-shadow(0 28px 36px rgba(16, 58, 58, 0.28));
 }
 
@@ -366,6 +378,17 @@ img {
         width: auto;
         height: 62%;
         max-height: 650px;
+    }
+
+    .features-visual {
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        width: 100%;
+        max-width: 420px;
+        margin: 0 auto;
+        pointer-events: auto;
     }
 }
 
