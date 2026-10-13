@@ -1,0 +1,438 @@
+:root {
+    --mint-bg: #eafffb;
+    --teal: #1cb6ac;
+    --teal-dark: #0f958c;
+    --navy: #163a4a;
+    --text-gray: #55666d;
+    --radius-pill: 999px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: var(--mint-bg);
+    overflow-x: hidden;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* Header */
+
+.navbar {
+    display: flex;
+    align-items: center;
+    padding: 20px 6%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    position: relative;
+    z-index: 10;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo-icon {
+    height: 44px;
+    width: auto;
+}
+
+.logo-text {
+    height: 32px;
+    width: auto;
+}
+
+/* Hero */
+
+.hero {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 70px 6% 100px;
+    overflow: hidden;
+}
+
+.bg-swirl {
+    position: absolute;
+    top: 50%;
+    left: -18%;
+    width: auto;
+    height: 150%;
+    max-height: 980px;
+    transform: translateY(-50%);
+    z-index: 0;
+    mix-blend-mode: multiply;
+    opacity: 0.9;
+    pointer-events: none;
+    user-select: none;
+}
+
+.hero-visual {
+    position: relative;
+    flex: 1 1 560px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    z-index: 1;
+}
+
+.phone-img {
+    width: 100%;
+    max-width: 460px;
+    height: auto;
+    display: block;
+}
+
+.biya-owl {
+    width: 60%;
+    max-width: 400px;
+    height: auto;
+    margin-left: -30%;
+    margin-right: 10%;
+    animation: fly 3.5s ease-in-out infinite;
+    filter: drop-shadow(0 10px 14px rgba(0, 0, 0, 0.12));
+}
+
+@keyframes fly {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+    50% {
+        transform: translateY(-18px) rotate(3deg);
+    }
+}
+
+.hero-content {
+    position: relative;
+    flex: 1 1 420px;
+    min-width: 280px;
+    max-width: 580px;
+    z-index: 1;
+}
+
+.hero-logo {
+    width: 100%;
+    max-width: 480px;
+    height: auto;
+    display: block;
+    margin-bottom: 6px;
+}
+
+.tagline-img {
+    display: block;
+    width: 100%;
+    max-width: 390px;
+    height: auto;
+    margin: 0 0 28px;
+}
+
+.cta-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+}
+
+.btn-store {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid #dcdcdc;
+    border-radius: var(--radius-pill);
+    padding: 8px 18px;
+    text-decoration: none;
+    color: #000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-store:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.store-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.store-text .small {
+    font-size: 9px;
+    letter-spacing: 0.4px;
+    color: #444;
+}
+
+.store-text .big {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.btn-learn {
+    background: var(--teal);
+    color: #fff;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    padding: 13px 30px;
+    border-radius: var(--radius-pill);
+    text-decoration: none;
+    box-shadow: 0 6px 14px rgba(28, 182, 172, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-learn:hover {
+    background: var(--teal-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 18px rgba(28, 182, 172, 0.45);
+}
+
+.hero-desc {
+    color: var(--text-gray);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 420px;
+    margin: 0;
+}
+
+/* Features */
+
+.features {
+    position: relative;
+    background: var(--mint-bg);
+}
+
+.features-bg {
+    position: absolute;
+    top: -110px;
+    right: -16%;
+    width: auto;
+    height: calc(100% + 180px);
+    max-height: 1100px;
+    transform: scaleX(-1);
+    filter: saturate(1.9) brightness(0.9);
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+.features-row {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 110px 6% 130px;
+    z-index: 1;
+}
+
+.features-content {
+    flex: 1 1 420px;
+    min-width: 280px;
+    max-width: 480px;
+}
+
+.features-title {
+    font-family: 'Baloo 2', cursive;
+    font-weight: 800;
+    font-size: clamp(26px, 3.6vw, 38px);
+    color: var(--navy);
+    line-height: 1.2;
+    margin: 0 0 18px;
+}
+
+.features-desc {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--text-gray);
+    max-width: 440px;
+    margin: 0 0 40px;
+}
+
+.features-desc .accent-teal {
+    color: var(--teal-dark);
+    font-weight: 600;
+}
+
+.features-desc .accent-brand {
+    color: #c9731c;
+    font-weight: 700;
+}
+
+.biya-sign {
+    width: 200px;
+    max-width: 60%;
+    height: auto;
+    display: block;
+    animation: fly 3.5s ease-in-out infinite;
+}
+
+.features-visual {
+    position: relative;
+    flex: 1 1 560px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 300px;
+    z-index: 1;
+}
+
+.app-phone {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    transform: rotate(-8deg);
+    filter: drop-shadow(0 28px 36px rgba(16, 58, 58, 0.28));
+}
+
+/* Responsive */
+
+@media (max-width: 900px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 50px;
+    }
+
+    .hero-content {
+        max-width: 480px;
+    }
+
+    .cta-row {
+        justify-content: center;
+    }
+
+    .hero-desc {
+        margin: 0 auto;
+    }
+
+    .bg-swirl {
+        height: 115%;
+        left: -15%;
+    }
+
+    .hero-visual {
+        justify-content: center;
+    }
+
+    .tagline-img {
+        margin: 0 auto 28px;
+    }
+
+    .features-row {
+        flex-direction: column-reverse;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .features-content {
+        max-width: 480px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .features-desc {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .features-bg {
+        top: -70px;
+        right: -25%;
+        left: auto;
+        width: auto;
+        height: 62%;
+        max-height: 650px;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 16px 6%;
+    }
+
+    .logo-icon {
+        height: 34px;
+    }
+
+    .logo-text {
+        height: 20px;
+    }
+
+    .hero {
+        padding: 40px 6% 70px;
+        gap: 24px;
+    }
+
+    .hero-logo {
+        max-width: 260px;
+        margin: 0 auto 6px;
+    }
+
+    .phone-img {
+        max-width: 240px;
+    }
+
+    .tagline-img {
+        max-width: 240px;
+        margin: 0 auto 24px;
+    }
+
+    .cta-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn-store,
+    .btn-learn {
+        justify-content: center;
+        text-align: center;
+    }
+
+    .hero-desc {
+        font-size: 14px;
+    }
+
+    .features-row {
+        padding: 50px 6% 70px;
+    }
+
+    .features-desc {
+        font-size: 14px;
+        margin-bottom: 28px;
+    }
+
+    .biya-sign {
+        width: 160px;
+    }
+
+    .features-bg {
+        top: -20px;
+        right: -35%;
+        height: 50%;
+        max-height: 420px;
+    }
+}
