@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
     <header class="navbar">
@@ -31,6 +32,226 @@
             <img src="Image/Commutewe.png" alt="Commute with Ease!" class="tagline-img">
 
             <div class="cta-row">
+                <a href="#get-app" class="btn-try">Try It Now</a>
+                <a href="#companion" class="btn-learn">Learn More</a>
+            </div>
+
+            <p class="hero-desc">BiyahEase makes traveling easier! Discover destinations, find routes, check fares, and explore places with ease—all in one app.</p>
+        </div>
+    </main>
+
+    <section class="features">
+        <img src="Image/Swirl.png" alt="" class="features-bg" aria-hidden="true">
+
+        <div class="features-row">
+            <div class="features-content">
+                <h2 class="features-title" data-reveal>Explore. Navigate. Arrive.</h2>
+                <p class="features-desc" data-reveal style="--reveal-delay: 120ms">
+                    Discover <strong class="accent-teal">new places</strong>, find the <strong class="accent-teal">best routes</strong>,
+                    and travel around with ease using <strong class="accent-brand">BiyahEase</strong>.
+                </p>
+                <img src="Image/biyasign.png" alt="Biya waiting at a bus stop" class="biya-sign">
+            </div>
+
+            <div class="features-visual">
+                <img src="Image/AppCp.png" alt="BiyahEase app screen asking where you want to go, with destination suggestions" class="app-phone">
+            </div>
+        </div>
+    </section>
+
+    <!-- Shared leaf shape, reused by the decorative leaves below -->
+    <svg width="0" height="0" class="svg-defs" aria-hidden="true" focusable="false">
+        <symbol id="leaf" viewBox="0 0 64 64">
+            <path fill="#5dbb63" d="M6 58C6 26 26 6 60 4c0 34-20 54-54 54z"/>
+            <path fill="#4aa752" d="M6 58C30 46 46 28 60 4c0 34-20 54-54 54z"/>
+            <path fill="none" stroke="#3a8f43" stroke-width="2.5" stroke-linecap="round" d="M9 55L52 12M22 42l-2-14M32 32l-1-14M22 42l14 1M32 32l14 1"/>
+        </symbol>
+    </svg>
+
+    <section class="companion" id="companion">
+        <img src="Image/Swirl.png" alt="" class="section-swirl swirl-left" aria-hidden="true">
+
+        <div class="companion-inner">
+            <h2 class="section-title" data-reveal>Your Travel Companion, <br>Anytime, Anywhere</h2>
+            <p class="section-desc" data-reveal style="--reveal-delay: 120ms">BiyahEase helps you discover places, explore routes, and access travel information for an easier journey.</p>
+
+            <div class="map-scene" data-reveal style="--reveal-delay: 220ms">
+                <svg class="leaf leaf-1" aria-hidden="true"><use href="#leaf"/></svg>
+                <svg class="leaf leaf-2" aria-hidden="true"><use href="#leaf"/></svg>
+                <svg class="leaf leaf-3" aria-hidden="true"><use href="#leaf"/></svg>
+                <svg class="leaf leaf-4" aria-hidden="true"><use href="#leaf"/></svg>
+
+                <div class="map-stage">
+                    <svg class="map-svg" viewBox="0 0 400 260" role="img" aria-label="Map with two location pins connected by a route">
+                        <defs>
+                            <clipPath id="map-clip">
+                                <polygon points="200,40 380,130 200,220 20,130"/>
+                            </clipPath>
+                            <linearGradient id="pin-grad" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#ff5a5a"/>
+                                <stop offset="1" stop-color="#d42626"/>
+                            </linearGradient>
+                        </defs>
+
+                        <ellipse cx="200" cy="238" rx="170" ry="16" fill="#0f5a4f" opacity="0.12"/>
+
+                        <!-- Map thickness -->
+                        <polygon points="20,130 200,220 200,234 20,144" fill="#2b8a5a"/>
+                        <polygon points="200,220 380,130 380,144 200,234" fill="#237a4e"/>
+
+                        <!-- Folded panels -->
+                        <polygon points="200,40 140,70 320,160 380,130" fill="#4fc58c"/>
+                        <polygon points="140,70 80,100 260,190 320,160" fill="#43b67f"/>
+                        <polygon points="80,100 20,130 200,220 260,190" fill="#4fc58c"/>
+
+                        <g clip-path="url(#map-clip)">
+                            <polygon points="160,78 186,91 160,104 134,91" fill="#36a06b"/>
+                            <polygon points="276,138 300,150 276,162 252,150" fill="#36a06b"/>
+                            <polygon points="214,176 232,185 214,194 196,185" fill="#36a06b"/>
+                            <path d="M20 132 Q 110 140 140 182 T 214 236" fill="none" stroke="#63cdf0" stroke-width="9" stroke-linecap="round"/>
+                            <g fill="none" stroke="#e3f7d6" stroke-linecap="round">
+                                <path d="M40 65 L 360 225" stroke-width="7"/>
+                                <path d="M60 250 L 380 90" stroke-width="7"/>
+                                <path d="M40 165 L 300 35" stroke-width="4"/>
+                                <path d="M150 20 L 390 140" stroke-width="4"/>
+                            </g>
+                        </g>
+
+                        <!-- Route between pins -->
+                        <path class="map-route" d="M115 132 C 150 175, 250 175, 295 110" fill="none" stroke="#ffc533" stroke-width="4" stroke-linecap="round" stroke-dasharray="9 7"/>
+
+                        <!-- Pins -->
+                        <ellipse cx="115" cy="134" rx="9" ry="4" fill="#0f3a2a" opacity="0.25"/>
+                        <g transform="translate(115 132)">
+                            <path d="M0 0C-6-14-18-24-18-38a18 18 0 1 1 36 0C18-24 6-14 0 0z" fill="url(#pin-grad)"/>
+                            <circle cy="-38" r="7" fill="#fff"/>
+                        </g>
+                        <ellipse cx="295" cy="112" rx="13" ry="5" fill="#0f3a2a" opacity="0.25"/>
+                        <g transform="translate(295 110) scale(1.55)">
+                            <path d="M0 0C-6-14-18-24-18-38a18 18 0 1 1 36 0C18-24 6-14 0 0z" fill="url(#pin-grad)"/>
+                            <circle cy="-38" r="7" fill="#fff"/>
+                        </g>
+                    </svg>
+                    <img src="Image/Biya-Icons/21.png" alt="Biya giving a thumbs up on the map" class="map-owl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="steps" id="steps">
+        <img src="Image/Swirl.png" alt="" class="section-swirl swirl-right" aria-hidden="true">
+
+        <div class="steps-inner">
+            <h2 class="steps-title" data-reveal>
+                <span class="steps-title-top">Your Journey in</span>
+                <span class="steps-title-accent">Three Easy Steps
+                    <svg class="leaf leaf-title" aria-hidden="true"><use href="#leaf"/></svg>
+                </span>
+            </h2>
+
+            <ol class="steps-grid">
+                <li data-reveal style="--reveal-delay: 0ms">
+                    <article class="step-card">
+                        <div class="step-art step-art--download">
+                            <img src="Image/Biyacon.png" alt="" class="art-appicon">
+                            <svg class="art-play" viewBox="0 0 512 512" aria-hidden="true">
+                                <path fill="#00d4ff" d="M99 11c-9 6-14 16-14 29v432c0 13 5 23 14 29l245-245L99 11z"/>
+                                <path fill="#ffe000" d="M344 211l-70-41L99 11c-4 3-8 6-10 11l255 234z"/>
+                                <path fill="#ff3a44" d="M274 256L89 466c2 5 6 8 10 11l175-159 70-41-70-21z"/>
+                                <path fill="#00f076" d="M413 229l-69-41-70 68 70 68 69-41c19-11 19-43 0-54z"/>
+                            </svg>
+                            <img src="Image/Biya-Icons/6.png" alt="Biya waving hi" class="art-owl">
+                        </div>
+                        <div class="step-body">
+                            <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+                            <h3>Download the app</h3>
+                            <p>Get BiyahEase on Google Play and start your travel experience.</p>
+                        </div>
+                    </article>
+                </li>
+                <li data-reveal style="--reveal-delay: 120ms">
+                    <article class="step-card">
+                        <div class="step-art step-art--explore">
+                            <img src="Image/Phonedesign.png" alt="" class="art-phone">
+                            <img src="Image/Biya-Icons/17.png" alt="Biya checking the app on a phone" class="art-owl">
+                        </div>
+                        <div class="step-body">
+                            <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+                            <h3>Explore and Discover</h3>
+                            <p>Find destinations, routes, and fares for the places you want to go.</p>
+                        </div>
+                    </article>
+                </li>
+                <li data-reveal style="--reveal-delay: 240ms">
+                    <article class="step-card">
+                        <div class="step-art step-art--enjoy">
+                            <img src="Image/Biya-Icons/7.png" alt="Biya enjoying music on the go" class="art-owl">
+                        </div>
+                        <div class="step-body">
+                            <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20M10.5 7.5v3.2l2 1.3"/></svg>
+                            <h3>Enjoy Your Journey</h3>
+                            <p>Use the app's available features to help plan your next trip.</p>
+                        </div>
+                    </article>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Scroll-driven road: the section pins while scrolling turns the road through each town -->
+    <section class="discover" id="discover" aria-labelledby="discover-title">
+        <div class="discover-sticky">
+            <img src="Image/Swirl.png" alt="" class="section-swirl swirl-left discover-swirl" aria-hidden="true">
+
+            <div class="discover-head">
+                <h2 class="discover-title" id="discover-title" data-reveal>
+                    <span class="accent">Discover</span> What's Around You
+                </h2>
+                <p class="discover-desc" data-reveal style="--reveal-delay: 120ms">Explore local destinations, find new places, and access travel information across Sto. Tomas, Tanauan, Malvar, Lipa, and Talisay, Batangas.</p>
+            </div>
+
+            <!-- Icons, road and towns share one coordinate system (1000 units wide) so they scale together -->
+            <div class="road-stage">
+                <svg class="road-svg" viewBox="0 0 1000 435" aria-hidden="true">
+                    <circle class="road-base" cx="500" cy="791" r="457" fill="none" stroke="#1d2729" stroke-width="100"/>
+                    <circle class="road-dashes" cx="500" cy="791" r="457" fill="none" stroke="#e9fffb" stroke-width="14" pathLength="1500" stroke-dasharray="28 22"/>
+                </svg>
+
+                <div class="discover-icons" data-reveal style="--reveal-delay: 200ms" aria-hidden="true">
+                    <span class="d-icon d-icon--church"><img src="Image/Biya-Icons/25.png" alt=""></span>
+                    <span class="d-icon d-icon--mall"><img src="Image/Biya-Icons/22.png" alt=""></span>
+                    <span class="d-icon d-icon--pin"><img src="Image/Biya-Icons/26.png" alt=""></span>
+                    <span class="d-icon d-icon--food"><img src="Image/Biya-Icons/23.png" alt=""></span>
+                    <span class="d-icon d-icon--cafe"><img src="Image/Biya-Icons/24.png" alt=""></span>
+                </div>
+
+                <ul class="road-towns" aria-label="Towns — scroll to travel along the road">
+                    <li><button type="button" class="town">Sto. Tomas</button></li>
+                    <li><button type="button" class="town">Tanauan</button></li>
+                    <li><button type="button" class="town">Talisay</button></li>
+                    <li><button type="button" class="town">Malvar</button></li>
+                    <li><button type="button" class="town">Lipa</button></li>
+                </ul>
+
+                <p class="road-hint" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="17" rx="5"/><path d="M12 7v3"/></svg>
+                    Scroll to explore
+                </p>
+                <p class="visually-hidden" aria-live="polite" id="town-status"></p>
+            </div>
+        </div>
+    </section>
+
+    <section class="get-app" id="get-app" aria-labelledby="get-app-title">
+        <img src="Image/Swirl.png" alt="" class="get-app-swirl" aria-hidden="true">
+        <img src="Image/Biya.png" alt="Biya, the BiyahEase owl, waving hello" class="get-app-owl">
+        <svg class="leaf leaf-ga-1" aria-hidden="true"><use href="#leaf"/></svg>
+        <svg class="leaf leaf-ga-2" aria-hidden="true"><use href="#leaf"/></svg>
+
+        <div class="get-app-inner">
+            <h2 class="get-app-title" id="get-app-title" data-reveal>Commute anytime <br>with ease</h2>
+
+            <div class="get-app-cta" data-reveal style="--reveal-delay: 120ms">
                 <a href="#" class="btn-store" aria-label="Get it on Google Play">
                     <svg class="play-icon" viewBox="0 0 512 512" width="26" height="26" aria-hidden="true">
                         <path fill="#00d4ff" d="M99 11c-9 6-14 16-14 29v432c0 13 5 23 14 29l245-245L99 11z"/>
@@ -43,31 +264,59 @@
                         <span class="big">Google Play</span>
                     </span>
                 </a>
-                <a href="#" class="btn-learn">Learn More</a>
+                <a href="#" class="btn-webapp">Open Web App</a>
             </div>
 
-            <p class="hero-desc">BiyahEase makes traveling easier! Discover destinations, find routes, check fares, and explore places with ease—all in one app.</p>
-        </div>
-    </main>
-
-    <section class="features">
-        <img src="Image/Swirl.png" alt="" class="features-bg" aria-hidden="true">
-
-        <div class="features-row">
-            <div class="features-content">
-                <h2 class="features-title">Explore. Navigate. Arrive.</h2>
-                <p class="features-desc">
-                    Discover <strong class="accent-teal">new places</strong>, find the <strong class="accent-teal">best routes</strong>,
-                    and travel around with ease using <strong class="accent-brand">BiyahEase</strong>.
-                </p>
-                <img src="Image/biyasign.png" alt="Biya waiting at a bus stop" class="biya-sign">
-            </div>
-
-            <div class="features-visual">
-                <img src="Image/AppCp.png" alt="BiyahEase app screen asking where you want to go, with destination suggestions" class="app-phone">
-            </div>
+            <p class="get-app-desc" data-reveal style="--reveal-delay: 200ms">BiyahEase makes traveling easier! Discover destinations, find routes, check fares, and explore places with ease—all in one app.</p>
         </div>
     </section>
+
+    <section class="know" aria-labelledby="know-title">
+        <img src="Image/Swirl.png" alt="" class="know-swirl" aria-hidden="true">
+        <svg class="leaf leaf-k-1" aria-hidden="true"><use href="#leaf"/></svg>
+        <svg class="leaf leaf-k-2" aria-hidden="true"><use href="#leaf"/></svg>
+        <svg class="leaf leaf-k-3" aria-hidden="true"><use href="#leaf"/></svg>
+
+        <div class="know-inner">
+            <h2 class="know-title" id="know-title" data-reveal>Get to know <span>BiyahEase</span></h2>
+            <a href="#" class="know-arrow" aria-label="Learn more about BiyahEase" data-reveal style="--reveal-delay: 120ms">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <p class="know-desc" data-reveal style="--reveal-delay: 200ms">Your travel companion for discovering places, exploring routes, and making every journey easier.</p>
+        </div>
+    </section>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>About Us</h3>
+                <p>Learn about BiyahEase and our mission to make local travel more convenient.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Legal &amp; Privacy</h3>
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Logo &amp; Brand Ownership</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Help &amp; Support</h3>
+                <ul>
+                    <li><a href="#">Frequently Asked Questions</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Send Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Get the App</h3>
+                <ul>
+                    <li><a href="#">Google Play</a></li>
+                    <li><a href="#">Web App for iOS users</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
 
     <script src="script.js" defer></script>
 </body>
