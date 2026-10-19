@@ -184,6 +184,18 @@
             step: num('--step')
         };
         svg.setAttribute('viewBox', '0 0 1000 ' + geo.vbH);
+
+        // Keep the end-of-road fade mask in sync with the viewBox height (differs per breakpoint)
+        const fadeMask = section.querySelector('#road-fade-mask');
+        const fadeMaskRect = section.querySelector('#road-fade-mask rect');
+        const fadeGradient = section.querySelector('#road-fade-gradient');
+        if (fadeMask) fadeMask.setAttribute('height', geo.vbH);
+        if (fadeMaskRect) fadeMaskRect.setAttribute('height', geo.vbH);
+        if (fadeGradient) {
+            fadeGradient.setAttribute('y1', (geo.vbH * 0.76).toFixed(1));
+            fadeGradient.setAttribute('y2', geo.vbH);
+        }
+
         [roadBase, dashes].forEach(function (c) {
             c.setAttribute('cy', geo.cy);
             c.setAttribute('r', geo.roadR);
@@ -387,4 +399,22 @@
             q.setAttribute('aria-expanded', String(open));
         });
     });
+})();
+
+// Back to top button
+(function () {
+    const btn = document.querySelector('.back-to-top');
+    if (!btn) return;
+
+    function onScroll() {
+        btn.classList.toggle('is-visible', window.scrollY > 400);
+    }
+
+    btn.addEventListener('click', function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    });
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
 })();

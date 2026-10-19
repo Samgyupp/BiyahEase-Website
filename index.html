@@ -278,8 +278,20 @@
             <!-- Icons, road and towns share one coordinate system (1000 units wide) so they scale together -->
             <div class="road-stage">
                 <svg class="road-svg" viewBox="0 0 1000 435" aria-hidden="true">
-                    <circle class="road-base" cx="500" cy="791" r="457" fill="none" stroke="#1d2729" stroke-width="100"/>
-                    <circle class="road-dashes" cx="500" cy="791" r="457" fill="none" stroke="#e9fffb" stroke-width="14" pathLength="1500" stroke-dasharray="28 22"/>
+                    <defs>
+                        <linearGradient id="road-fade-gradient" gradientUnits="userSpaceOnUse" x1="0" y1="330" x2="0" y2="435">
+                            <stop offset="0" stop-color="#fff"/>
+                            <stop offset="0.6" stop-color="#fff"/>
+                            <stop offset="1" stop-color="#000"/>
+                        </linearGradient>
+                        <mask id="road-fade-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="1000" height="435">
+                            <rect x="0" y="0" width="1000" height="435" fill="url(#road-fade-gradient)"/>
+                        </mask>
+                    </defs>
+                    <g mask="url(#road-fade-mask)">
+                        <circle class="road-base" cx="500" cy="791" r="457" fill="none" stroke="#1d2729" stroke-width="100"/>
+                        <circle class="road-dashes" cx="500" cy="791" r="457" fill="none" stroke="#e9fffb" stroke-width="14" pathLength="1500" stroke-dasharray="28 22"/>
+                    </g>
                 </svg>
 
                 <div class="discover-icons" data-reveal style="--reveal-delay: 200ms" aria-hidden="true">
