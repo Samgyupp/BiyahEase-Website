@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About BiyahEase</title>
+    <meta name="description" content="BiyahEase is a landmark-based commuter navigation app with fare estimation for public transport in Santo Tomas, Tanauan, Malvar, Lipa, and Talisay, Batangas.">
+    <link rel="icon" href="Image/Biyacon.png" type="image/png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="logo">
+            <img src="Image/Biyacon.png" alt="BiyahEase icon" class="logo-icon">
+            <img src="Image/Biyatitle.png" alt="BiyahEase" class="logo-text">
+        </a>
+        <a href="index.html" class="navbar-back">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg>
+            Back to Home
+        </a>
+    </header>
+
+    <!-- Shared leaf shapes, reused by the decorative leaves below -->
+    <svg width="0" height="0" class="svg-defs" aria-hidden="true" focusable="false">
+        <symbol id="leaf" viewBox="0 0 64 64">
+            <path fill="#5dbb63" d="M6 58C6 26 26 6 60 4c0 34-20 54-54 54z"/>
+            <path fill="#4aa752" d="M6 58C30 46 46 28 60 4c0 34-20 54-54 54z"/>
+            <path fill="none" stroke="#3a8f43" stroke-width="2.5" stroke-linecap="round" d="M9 55L52 12M22 42l-2-14M32 32l-1-14M22 42l14 1M32 32l14 1"/>
+        </symbol>
+        <symbol id="leaf-round" viewBox="0 0 64 64">
+            <path fill="#4fc58c" d="M32 3C48 13 56 30 50 50C43 59 21 59 14 50C8 30 16 13 32 3z"/>
+            <path fill="#36a06b" d="M32 3C33 21 34 41 32 61C22 59 14 50 14 50C8 30 16 13 32 3z"/>
+            <path fill="none" stroke="#237a4e" stroke-width="2.4" stroke-linecap="round" d="M32 7V57M32 22l-11-7M32 22l11-7M32 38l-12-6M32 38l12-6"/>
+        </symbol>
+        <symbol id="leaf-slim" viewBox="0 0 64 64">
+            <path fill="#8fd14f" d="M5 59C5 32 18 10 59 3C53 32 36 53 5 59z"/>
+            <path fill="#6fae35" d="M5 59C21 49 38 34 59 3C53 32 36 53 5 59z"/>
+            <path fill="none" stroke="#548a26" stroke-width="2.2" stroke-linecap="round" d="M9 55L53 9M20 43l-1-11M29 34l0-11M20 43l11 1M29 34l11 1"/>
+        </symbol>
+    </svg>
+
+    <main>
+        <!-- ---------- Hero ---------- -->
+        <section class="about-hero">
+            <img src="Image/Swirl.png" alt="" class="section-swirl swirl-left" aria-hidden="true">
+
+            <div class="wind-field" aria-hidden="true">
+                <div class="wind-gust wind-gust-1">
+                    <svg class="wind-trail" viewBox="0 0 140 24"><path d="M4 12 Q 40 2 70 12 T 136 14"/></svg>
+                    <svg class="wind-leaf" aria-hidden="true"><use href="#leaf"/></svg>
+                </div>
+                <div class="wind-gust wind-gust-2">
+                    <svg class="wind-trail" viewBox="0 0 140 24"><path d="M4 14 Q 40 22 70 12 T 136 4"/></svg>
+                    <svg class="wind-leaf" aria-hidden="true"><use href="#leaf-round"/></svg>
+                </div>
+                <div class="wind-gust wind-gust-3">
+                    <svg class="wind-trail" viewBox="0 0 140 24"><path d="M4 10 Q 40 18 70 8 T 136 12"/></svg>
+                    <svg class="wind-leaf" aria-hidden="true"><use href="#leaf-slim"/></svg>
+                </div>
+                <div class="wind-gust wind-gust-4">
+                    <svg class="wind-trail" viewBox="0 0 140 24"><path d="M4 12 Q 40 4 70 16 T 136 10"/></svg>
+                    <svg class="wind-leaf" aria-hidden="true"><use href="#leaf-round"/></svg>
+                </div>
+            </div>
+
+            <div class="about-hero-inner">
+                <p class="about-eyebrow" data-reveal>OUR STORY</p>
+                <h1 class="about-hero-title" data-reveal style="--reveal-delay: 80ms">Getting to know <span>BiyahEase</span></h1>
+                <p class="about-hero-desc" data-reveal style="--reveal-delay: 160ms">
+                    BiyahEase is a landmark-based commuter navigation app built to make unfamiliar public
+                    transport routes feel familiar. It pairs live GPS tracking with the buildings, signs, and
+                    corners you'll actually recognize on the street — plus fare estimates, transfer alerts,
+                    and a calmer way to get where you're going across Batangas.
+                </p>
+                <div class="about-hero-cta" data-reveal style="--reveal-delay: 240ms">
+                    <a href="index.html#get-app" class="btn-learn">Try BiyahEase</a>
+                    <a href="index.html#companion" class="btn-try">See How It Works</a>
+                </div>
+            </div>
+
+            <img src="Image/Biya.png" alt="Biya, the BiyahEase owl, flying in" class="about-hero-owl" data-reveal style="--reveal-delay: 320ms">
+        </section>
+
+        <!-- ---------- Stats ---------- -->
+        <section class="about-stats">
+            <div class="about-stats-inner">
+                <div class="about-stat" data-reveal>
+                    <span class="about-stat-num" data-count="76">0</span>
+                    <span class="about-stat-label">Destinations</span>
+                </div>
+                <div class="about-stat" data-reveal style="--reveal-delay: 80ms">
+                    <span class="about-stat-num" data-count="209">0</span>
+                    <span class="about-stat-label">Validated routes</span>
+                </div>
+                <div class="about-stat" data-reveal style="--reveal-delay: 160ms">
+                    <span class="about-stat-num" data-count="5">0</span>
+                    <span class="about-stat-label">Localities covered</span>
+                </div>
+                <div class="about-stat" data-reveal style="--reveal-delay: 240ms">
+                    <span class="about-stat-num" data-count="40">0</span>
+                    <span class="about-stat-label">Commuters tested it</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------- Challenge / Approach ---------- -->
+        <section class="about-problem">
+            <div class="about-problem-inner">
+                <div class="about-problem-col" data-reveal>
+                    <span class="about-tag">The Challenge</span>
+                    <h2>Commuting shouldn't feel like guesswork</h2>
+                    <p>
+                        Unfamiliar routes, unclear transfer points, and fares you can't predict make commuting
+                        stressful — especially for first-time or low-confidence riders. Conventional GPS apps
+                        help, but turn-by-turn directions and abstract map lines aren't always easy to match
+                        against what's actually in front of you on the street.
+                    </p>
+                </div>
+                <div class="about-problem-col" data-reveal style="--reveal-delay: 140ms">
+                    <span class="about-tag about-tag--alt">Our Approach</span>
+                    <h2>Guidance built around what you can actually see</h2>
+                    <p>
+                        BiyahEase replaces guesswork with recognizable landmarks — the sari-sari store on the
+                        corner, the church, the mall entrance — layered on top of live GPS tracking and
+                        researcher-validated routes. The result is navigation that matches your eyes, not just
+                        your coordinates.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------- Features ---------- -->
+        <section class="about-features">
+            <div class="about-features-inner">
+                <h2 class="about-section-title" data-reveal>What BiyahEase offers</h2>
+
+                <div class="about-features-grid">
+                    <article class="about-feature-card" data-reveal>
+                        <span class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                        </span>
+                        <h3>Landmark-based guidance</h3>
+                        <p>Directions built around buildings and signboards you'll actually recognize — not just street names.</p>
+                    </article>
+                    <article class="about-feature-card" data-reveal style="--reveal-delay: 80ms">
+                        <span class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+                        </span>
+                        <h3>Live GPS &amp; Mapbox maps</h3>
+                        <p>Real-time location tracking and route visualization keep you oriented from boarding to arrival.</p>
+                    </article>
+                    <article class="about-feature-card" data-reveal style="--reveal-delay: 160ms">
+                        <span class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v10M9.5 9.5h4a2 2 0 1 1 0 4h-5a2 2 0 1 0 0 4h5"/></svg>
+                        </span>
+                        <h3>Fare estimation</h3>
+                        <p>Know your fare before you ride, including the 20% discount for students, seniors, and PWDs.</p>
+                    </article>
+                    <article class="about-feature-card" data-reveal>
+                        <span class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 1 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>
+                        </span>
+                        <h3>Transfer alerts</h3>
+                        <p>A heads-up exactly when it's time to switch jeepneys, e-jeeps, or tricycles — no missed stops.</p>
+                    </article>
+                    <article class="about-feature-card" data-reveal style="--reveal-delay: 80ms">
+                        <span class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+                        </span>
+                        <h3>Curated ride playlists</h3>
+                        <p>Chill, Hype, or Focus — Biya picks a mood-based soundtrack to keep you comfortable on the road.</p>
+                    </article>
+                    <article class="about-feature-card" data-reveal style="--reveal-delay: 160ms">
+                        <span class="about-feature-icon">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8.5-7 10-4-1.5-7-5-7-10V6z"/><path d="m9 12 2 2 4-4"/></svg>
+                        </span>
+                        <h3>Researcher-validated routes</h3>
+                        <p>Every route was walked, ridden, and checked by the team before it made it into the app.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------- Coverage ---------- -->
+        <section class="about-coverage">
+            <img src="Image/Swirl.png" alt="" class="section-swirl swirl-right" aria-hidden="true">
+            <svg class="leaf about-leaf-1" aria-hidden="true"><use href="#leaf-slim"/></svg>
+            <svg class="leaf about-leaf-2" aria-hidden="true"><use href="#leaf-round"/></svg>
+
+            <div class="about-coverage-inner">
+                <h2 class="about-section-title" data-reveal>Where we travel</h2>
+                <p class="about-coverage-desc" data-reveal style="--reveal-delay: 100ms">
+                    BiyahEase currently guides commuters across five localities in Batangas Province, with
+                    76 destinations and 209 validated routes spanning traditional jeepneys, e-jeeps, tricycles,
+                    and walking segments.
+                </p>
+
+                <ul class="about-coverage-list">
+                    <li data-reveal>
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                        Santo Tomas City
+                    </li>
+                    <li data-reveal style="--reveal-delay: 60ms">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                        Tanauan City
+                    </li>
+                    <li data-reveal style="--reveal-delay: 120ms">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                        Malvar
+                    </li>
+                    <li data-reveal style="--reveal-delay: 180ms">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                        Lipa City
+                    </li>
+                    <li data-reveal style="--reveal-delay: 240ms">
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.1-7-11a7 7 0 1 1 14 0c0 5.9-7 11-7 11z"/><circle cx="12" cy="10" r="2.6"/></svg>
+                        Talisay
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ---------- Team ---------- -->
+        <section class="about-team">
+            <div class="about-team-inner">
+                <h2 class="about-section-title" data-reveal>Meet the team</h2>
+                <p class="about-team-sub" data-reveal style="--reveal-delay: 100ms">
+                    BSIT students at First Asia Institute of Technology and Humanities (FAITH Colleges),
+                    Tanauan City — guided by Ms. Angelica Evangelista, MIT and Dr. Maricel M. Gaspar.
+                </p>
+
+                <div class="about-team-grid">
+                    <article class="about-team-card" data-reveal>
+                        <span class="about-team-avatar">LJ</span>
+                        <h3>Leander Lance Jatulan</h3>
+                        <p>Project Lead &amp; Frontend Developer</p>
+                    </article>
+                    <article class="about-team-card" data-reveal style="--reveal-delay: 120ms">
+                        <span class="about-team-avatar">HD</span>
+                        <h3>Hart Denise De Ocampo</h3>
+                        <p>UI/UX &amp; Systems Developer</p>
+                    </article>
+                    <article class="about-team-card" data-reveal style="--reveal-delay: 240ms">
+                        <span class="about-team-avatar">SG</span>
+                        <h3>Samuel Guiseppe Samoza</h3>
+                        <p>Visual Design &amp; UI Styling</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ---------- Closing CTA ---------- -->
+        <section class="about-cta">
+            <img src="Image/Biya-Icons/18.png" alt="" class="about-cta-owl" data-reveal aria-hidden="true">
+            <div class="about-cta-inner" data-reveal style="--reveal-delay: 100ms">
+                <h2>Ready to commute with ease?</h2>
+                <p>Discover destinations, follow landmarks, and travel with confidence — starting now.</p>
+                <a href="index.html#get-app" class="btn-learn">Get BiyahEase</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>About Us</h3>
+                <p>Learn about BiyahEase and our mission to make local travel more convenient.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Legal &amp; Privacy</h3>
+                <ul>
+                    <li><a href="support.html#privacy">Privacy Policy</a></li>
+                    <li><a href="support.html#terms">Terms &amp; Conditions</a></li>
+                    <li><a href="support.html#brand">Logo &amp; Brand Ownership</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Help &amp; Support</h3>
+                <ul>
+                    <li><a href="support.html#faq">Frequently Asked Questions</a></li>
+                    <li><a href="support.html#contact">Contact Us</a></li>
+                    <li><a href="support.html#feedback">Send Feedback</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Get the App</h3>
+                <ul>
+                    <li><a href="#">Google Play</a></li>
+                    <li><a href="#">Web App for iOS users</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>

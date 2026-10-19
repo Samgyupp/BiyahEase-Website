@@ -59,17 +59,49 @@
         </div>
     </section>
 
-    <!-- Shared leaf shape, reused by the decorative leaves below -->
+    <!-- Shared leaf shapes, reused by the decorative leaves below -->
     <svg width="0" height="0" class="svg-defs" aria-hidden="true" focusable="false">
         <symbol id="leaf" viewBox="0 0 64 64">
             <path fill="#5dbb63" d="M6 58C6 26 26 6 60 4c0 34-20 54-54 54z"/>
             <path fill="#4aa752" d="M6 58C30 46 46 28 60 4c0 34-20 54-54 54z"/>
             <path fill="none" stroke="#3a8f43" stroke-width="2.5" stroke-linecap="round" d="M9 55L52 12M22 42l-2-14M32 32l-1-14M22 42l14 1M32 32l14 1"/>
         </symbol>
+        <!-- Rounder, upright leaf — shares the map scene's teal-green palette -->
+        <symbol id="leaf-round" viewBox="0 0 64 64">
+            <path fill="#4fc58c" d="M32 3C48 13 56 30 50 50C43 59 21 59 14 50C8 30 16 13 32 3z"/>
+            <path fill="#36a06b" d="M32 3C33 21 34 41 32 61C22 59 14 50 14 50C8 30 16 13 32 3z"/>
+            <path fill="none" stroke="#237a4e" stroke-width="2.4" stroke-linecap="round" d="M32 7V57M32 22l-11-7M32 22l11-7M32 38l-12-6M32 38l12-6"/>
+        </symbol>
+        <!-- Slim, pointed leaf — warmer yellow-green for contrast -->
+        <symbol id="leaf-slim" viewBox="0 0 64 64">
+            <path fill="#8fd14f" d="M5 59C5 32 18 10 59 3C53 32 36 53 5 59z"/>
+            <path fill="#6fae35" d="M5 59C21 49 38 34 59 3C53 32 36 53 5 59z"/>
+            <path fill="none" stroke="#548a26" stroke-width="2.2" stroke-linecap="round" d="M9 55L53 9M20 43l-1-11M29 34l0-11M20 43l11 1M29 34l11 1"/>
+        </symbol>
     </svg>
 
     <section class="companion" id="companion">
         <img src="Image/Swirl.png" alt="" class="section-swirl swirl-left" aria-hidden="true">
+
+        <!-- Ambient wind: leaves drifting across the background, each trailing a broken wind line -->
+        <div class="wind-field" aria-hidden="true">
+            <div class="wind-gust wind-gust-1">
+                <svg class="wind-trail" viewBox="0 0 140 24"><path d="M4 12 Q 40 2 70 12 T 136 14"/></svg>
+                <svg class="wind-leaf" aria-hidden="true"><use href="#leaf"/></svg>
+            </div>
+            <div class="wind-gust wind-gust-2">
+                <svg class="wind-trail" viewBox="0 0 140 24"><path d="M4 14 Q 40 22 70 12 T 136 4"/></svg>
+                <svg class="wind-leaf" aria-hidden="true"><use href="#leaf-round"/></svg>
+            </div>
+            <div class="wind-gust wind-gust-3">
+                <svg class="wind-trail" viewBox="0 0 140 24"><path d="M4 10 Q 40 18 70 8 T 136 12"/></svg>
+                <svg class="wind-leaf" aria-hidden="true"><use href="#leaf-slim"/></svg>
+            </div>
+            <div class="wind-gust wind-gust-4">
+                <svg class="wind-trail" viewBox="0 0 140 24"><path d="M4 12 Q 40 4 70 16 T 136 10"/></svg>
+                <svg class="wind-leaf" aria-hidden="true"><use href="#leaf-round"/></svg>
+            </div>
+        </div>
 
         <div class="companion-inner">
             <h2 class="section-title" data-reveal>Your Travel Companion, <br>Anytime, Anywhere</h2>
@@ -77,9 +109,9 @@
 
             <div class="map-scene" data-reveal style="--reveal-delay: 220ms">
                 <svg class="leaf leaf-1" aria-hidden="true"><use href="#leaf"/></svg>
-                <svg class="leaf leaf-2" aria-hidden="true"><use href="#leaf"/></svg>
-                <svg class="leaf leaf-3" aria-hidden="true"><use href="#leaf"/></svg>
-                <svg class="leaf leaf-4" aria-hidden="true"><use href="#leaf"/></svg>
+                <svg class="leaf leaf-2" aria-hidden="true"><use href="#leaf-round"/></svg>
+                <svg class="leaf leaf-3" aria-hidden="true"><use href="#leaf-slim"/></svg>
+                <svg class="leaf leaf-4" aria-hidden="true"><use href="#leaf-round"/></svg>
 
                 <div class="map-stage">
                     <svg class="map-svg" viewBox="0 0 400 260" role="img" aria-label="Map with two location pins connected by a route">
@@ -145,54 +177,87 @@
             <h2 class="steps-title" data-reveal>
                 <span class="steps-title-top">Your Journey in</span>
                 <span class="steps-title-accent">Three Easy Steps
-                    <svg class="leaf leaf-title" aria-hidden="true"><use href="#leaf"/></svg>
+                    <svg class="leaf leaf-title" aria-hidden="true"><use href="#leaf-round"/></svg>
                 </span>
             </h2>
 
             <ol class="steps-grid">
                 <li data-reveal style="--reveal-delay: 0ms">
-                    <article class="step-card">
-                        <div class="step-art step-art--download">
-                            <img src="Image/Biyacon.png" alt="" class="art-appicon">
-                            <svg class="art-play" viewBox="0 0 512 512" aria-hidden="true">
-                                <path fill="#00d4ff" d="M99 11c-9 6-14 16-14 29v432c0 13 5 23 14 29l245-245L99 11z"/>
-                                <path fill="#ffe000" d="M344 211l-70-41L99 11c-4 3-8 6-10 11l255 234z"/>
-                                <path fill="#ff3a44" d="M274 256L89 466c2 5 6 8 10 11l175-159 70-41-70-21z"/>
-                                <path fill="#00f076" d="M413 229l-69-41-70 68 70 68 69-41c19-11 19-43 0-54z"/>
-                            </svg>
-                            <img src="Image/Biya-Icons/6.png" alt="Biya waving hi" class="art-owl">
+                    <div class="card-flip" role="button" tabindex="0" aria-pressed="false" aria-label="Step 1: Download the app. Show more." style="--flip-delay: 0ms">
+                        <div class="card-float" style="--float-dur: 4.2s; --float-delay: 0s; --float-rot: 1.6deg">
+                            <div class="card-flip-inner">
+                                <article class="step-card card-face card-face--front">
+                                    <div class="step-art step-art--download">
+                                        <img src="Image/Biyacon.png" alt="" class="art-appicon">
+                                        <svg class="art-play" viewBox="0 0 512 512" aria-hidden="true">
+                                            <path fill="#00d4ff" d="M99 11c-9 6-14 16-14 29v432c0 13 5 23 14 29l245-245L99 11z"/>
+                                            <path fill="#ffe000" d="M344 211l-70-41L99 11c-4 3-8 6-10 11l255 234z"/>
+                                            <path fill="#ff3a44" d="M274 256L89 466c2 5 6 8 10 11l175-159 70-41-70-21z"/>
+                                            <path fill="#00f076" d="M413 229l-69-41-70 68 70 68 69-41c19-11 19-43 0-54z"/>
+                                        </svg>
+                                        <img src="Image/Biya-Icons/6.png" alt="Biya waving hi" class="art-owl">
+                                    </div>
+                                    <div class="step-body">
+                                        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
+                                        <h3>Download the app</h3>
+                                        <p>Get BiyahEase on Google Play and start your travel experience.</p>
+                                    </div>
+                                </article>
+                                <div class="step-card card-face card-face--back card-back" aria-hidden="true">
+                                    <img src="Image/Biya-Icons/13.png" alt="" class="card-back-owl">
+                                    <h4 class="card-back-title">Ready to Explore?</h4>
+                                    <p class="card-back-text">Start your next adventure with BiyahEase.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="step-body">
-                            <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
-                            <h3>Download the app</h3>
-                            <p>Get BiyahEase on Google Play and start your travel experience.</p>
-                        </div>
-                    </article>
+                    </div>
                 </li>
-                <li data-reveal style="--reveal-delay: 120ms">
-                    <article class="step-card">
-                        <div class="step-art step-art--explore">
-                            <img src="Image/Phonedesign.png" alt="" class="art-phone">
-                            <img src="Image/Biya-Icons/17.png" alt="Biya checking the app on a phone" class="art-owl">
+                <li data-reveal style="--reveal-delay: 160ms">
+                    <div class="card-flip" role="button" tabindex="0" aria-pressed="false" aria-label="Step 2: Explore and Discover. Show more." style="--flip-delay: 160ms">
+                        <div class="card-float" style="--float-dur: 5s; --float-delay: -1.4s; --float-rot: -1.3deg">
+                            <div class="card-flip-inner">
+                                <article class="step-card card-face card-face--front">
+                                    <div class="step-art step-art--explore">
+                                        <img src="Image/Phonedesign.png" alt="" class="art-phone">
+                                        <img src="Image/Biya-Icons/17.png" alt="Biya checking the app on a phone" class="art-owl">
+                                    </div>
+                                    <div class="step-body">
+                                        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
+                                        <h3>Explore and Discover</h3>
+                                        <p>Find destinations, routes, and fares for the places you want to go.</p>
+                                    </div>
+                                </article>
+                                <div class="step-card card-face card-face--back card-back" aria-hidden="true">
+                                    <img src="Image/Biya-Icons/10.png" alt="" class="card-back-owl">
+                                    <h4 class="card-back-title">Your Next Destination</h4>
+                                    <p class="card-back-text">Discover places, routes, and fares with ease.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="step-body">
-                            <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></svg>
-                            <h3>Explore and Discover</h3>
-                            <p>Find destinations, routes, and fares for the places you want to go.</p>
-                        </div>
-                    </article>
+                    </div>
                 </li>
-                <li data-reveal style="--reveal-delay: 240ms">
-                    <article class="step-card">
-                        <div class="step-art step-art--enjoy">
-                            <img src="Image/Biya-Icons/7.png" alt="Biya enjoying music on the go" class="art-owl">
+                <li data-reveal style="--reveal-delay: 320ms">
+                    <div class="card-flip" role="button" tabindex="0" aria-pressed="false" aria-label="Step 3: Enjoy Your Journey. Show more." style="--flip-delay: 320ms">
+                        <div class="card-float" style="--float-dur: 4.6s; --float-delay: -2.6s; --float-rot: 1.4deg">
+                            <div class="card-flip-inner">
+                                <article class="step-card card-face card-face--front">
+                                    <div class="step-art step-art--enjoy">
+                                        <img src="Image/Biya-Icons/7.png" alt="Biya enjoying music on the go" class="art-owl">
+                                    </div>
+                                    <div class="step-body">
+                                        <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20M10.5 7.5v3.2l2 1.3"/></svg>
+                                        <h3>Enjoy Your Journey</h3>
+                                        <p>Use the app's available features to help plan your next trip.</p>
+                                    </div>
+                                </article>
+                                <div class="step-card card-face card-face--back card-back" aria-hidden="true">
+                                    <img src="Image/Biya-Icons/9.png" alt="" class="card-back-owl">
+                                    <h4 class="card-back-title">Travel with Ease</h4>
+                                    <p class="card-back-text">Let Biya help you plan your next trip.</p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="step-body">
-                            <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="M15.5 15.5L20 20M10.5 7.5v3.2l2 1.3"/></svg>
-                            <h3>Enjoy Your Journey</h3>
-                            <p>Use the app's available features to help plan your next trip.</p>
-                        </div>
-                    </article>
+                    </div>
                 </li>
             </ol>
         </div>
@@ -245,8 +310,8 @@
     <section class="get-app" id="get-app" aria-labelledby="get-app-title">
         <img src="Image/Swirl.png" alt="" class="get-app-swirl" aria-hidden="true">
         <img src="Image/Biya.png" alt="Biya, the BiyahEase owl, waving hello" class="get-app-owl">
-        <svg class="leaf leaf-ga-1" aria-hidden="true"><use href="#leaf"/></svg>
-        <svg class="leaf leaf-ga-2" aria-hidden="true"><use href="#leaf"/></svg>
+        <svg class="leaf leaf-ga-1" aria-hidden="true"><use href="#leaf-slim"/></svg>
+        <svg class="leaf leaf-ga-2" aria-hidden="true"><use href="#leaf-round"/></svg>
 
         <div class="get-app-inner">
             <h2 class="get-app-title" id="get-app-title" data-reveal>Commute anytime <br>with ease</h2>
@@ -274,12 +339,12 @@
     <section class="know" aria-labelledby="know-title">
         <img src="Image/Swirl.png" alt="" class="know-swirl" aria-hidden="true">
         <svg class="leaf leaf-k-1" aria-hidden="true"><use href="#leaf"/></svg>
-        <svg class="leaf leaf-k-2" aria-hidden="true"><use href="#leaf"/></svg>
-        <svg class="leaf leaf-k-3" aria-hidden="true"><use href="#leaf"/></svg>
+        <svg class="leaf leaf-k-2" aria-hidden="true"><use href="#leaf-slim"/></svg>
+        <svg class="leaf leaf-k-3" aria-hidden="true"><use href="#leaf-round"/></svg>
 
         <div class="know-inner">
             <h2 class="know-title" id="know-title" data-reveal>Get to know <span>BiyahEase</span></h2>
-            <a href="#" class="know-arrow" aria-label="Learn more about BiyahEase" data-reveal style="--reveal-delay: 120ms">
+            <a href="about.html" class="know-arrow" aria-label="Learn more about BiyahEase" data-reveal style="--reveal-delay: 120ms">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
             </a>
             <p class="know-desc" data-reveal style="--reveal-delay: 200ms">Your travel companion for discovering places, exploring routes, and making every journey easier.</p>
@@ -289,23 +354,23 @@
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-col">
-                <h3>About Us</h3>
+                <h3><a href="about.html">About Us</a></h3>
                 <p>Learn about BiyahEase and our mission to make local travel more convenient.</p>
             </div>
             <div class="footer-col">
                 <h3>Legal &amp; Privacy</h3>
                 <ul>
-                    <li><a href="#">Privacy Policy</a></li>
-                    <li><a href="#">Terms &amp; Conditions</a></li>
-                    <li><a href="#">Logo &amp; Brand Ownership</a></li>
+                    <li><a href="support.html#privacy">Privacy Policy</a></li>
+                    <li><a href="support.html#terms">Terms &amp; Conditions</a></li>
+                    <li><a href="support.html#brand">Logo &amp; Brand Ownership</a></li>
                 </ul>
             </div>
             <div class="footer-col">
                 <h3>Help &amp; Support</h3>
                 <ul>
-                    <li><a href="#">Frequently Asked Questions</a></li>
-                    <li><a href="#">Contact Us</a></li>
-                    <li><a href="#">Send Feedback</a></li>
+                    <li><a href="support.html#faq">Frequently Asked Questions</a></li>
+                    <li><a href="support.html#contact">Contact Us</a></li>
+                    <li><a href="support.html#feedback">Send Feedback</a></li>
                 </ul>
             </div>
             <div class="footer-col">

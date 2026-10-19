@@ -70,6 +70,84 @@
     items.forEach(function (el) { observer.observe(el); });
 })();
 
+// Steps section: each card deals face-down, flips face-up once when it first
+// scrolls into view (handled by the shared [data-reveal] observer below,
+// which adds .is-visible permanently). After that, clicking/tapping flips a
+// card to its back as a one-off "peek" — and scrolling in either direction
+// resets any flipped card back to its front, so the back never gets stuck.
+(function () {
+    const cards = document.querySelectorAll('.steps-grid .card-flip');
+    if (!cards.length) return;
+
+    const resetters = [];
+
+    cards.forEach(function (flip) {
+        const li = flip.closest('[data-reveal]');
+        const front = flip.querySelector('.card-face--front');
+        const back = flip.querySelector('.card-face--back');
+        if (!li) return;
+
+        // The entrance stagger lives in --flip-delay; once that first flip-in
+        // transition has had time to finish, zero the delay out so later
+        // clicks snap immediately instead of inheriting the same stagger.
+        function clearDelayAfterEntrance() {
+            const raw = getComputedStyle(li).getPropertyValue('--flip-delay').trim();
+            const delayMs = parseFloat(raw) || 0;
+            setTimeout(function () {
+                li.style.setProperty('--flip-delay', '0ms');
+            }, delayMs + 950);
+        }
+
+        if (li.classList.contains('is-visible')) {
+            clearDelayAfterEntrance();
+        } else if ('MutationObserver' in window) {
+            const mo = new MutationObserver(function () {
+                if (li.classList.contains('is-visible')) {
+                    clearDelayAfterEntrance();
+                    mo.disconnect();
+                }
+            });
+            mo.observe(li, { attributes: true, attributeFilter: ['class'] });
+        }
+
+        function setFlipped(flipped) {
+            li.classList.toggle('is-flipped', flipped);
+            flip.setAttribute('aria-pressed', String(flipped));
+            if (front) front.setAttribute('aria-hidden', String(flipped));
+            if (back) back.setAttribute('aria-hidden', String(!flipped));
+        }
+
+        function toggle() {
+            if (!li.classList.contains('is-visible')) return;
+            setFlipped(!li.classList.contains('is-flipped'));
+        }
+
+        flip.addEventListener('click', toggle);
+        flip.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                toggle();
+            }
+        });
+
+        resetters.push(function () {
+            if (li.classList.contains('is-flipped')) setFlipped(false);
+        });
+    });
+
+    let ticking = false;
+    function resetFlippedOnScroll() {
+        if (ticking) return;
+        ticking = true;
+        requestAnimationFrame(function () {
+            resetters.forEach(function (reset) { reset(); });
+            ticking = false;
+        });
+    }
+
+    window.addEventListener('scroll', resetFlippedOnScroll, { passive: true });
+})();
+
 // Discover section: scrolling turns the road and brings each town to the top
 (function () {
     const section = document.querySelector('.discover');
@@ -257,4 +335,56 @@
     readGeometry();
     target = current = progressToPosition(scrollProgress());
     layout();
+})();
+
+// About page: stat numbers count up from 0 once scrolled into view
+(function () {
+    const nums = document.querySelectorAll('.about-stat-num[data-count]');
+    if (!nums.length) return;
+
+    if (!('IntersectionObserver' in window) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        nums.forEach(function (el) { el.textContent = el.getAttribute('data-count'); });
+        return;
+    }
+
+    function animateCount(el) {
+        const target = parseInt(el.getAttribute('data-count'), 10) || 0;
+        const duration = 1100;
+        let start = null;
+
+        function step(ts) {
+            if (!start) start = ts;
+            const progress = Math.min((ts - start) / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            el.textContent = Math.round(eased * target);
+            if (progress < 1) requestAnimationFrame(step);
+        }
+
+        requestAnimationFrame(step);
+    }
+
+    const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+            if (!entry.isIntersecting) return;
+            animateCount(entry.target);
+            observer.unobserve(entry.target);
+        });
+    }, { threshold: 0.6 });
+
+    nums.forEach(function (el) { observer.observe(el); });
+})();
+
+// Support page: FAQ accordion
+(function () {
+    const items = document.querySelectorAll('.faq-item');
+    if (!items.length) return;
+
+    items.forEach(function (item) {
+        const q = item.querySelector('.faq-q');
+        if (!q) return;
+        q.addEventListener('click', function () {
+            const open = item.classList.toggle('is-open');
+            q.setAttribute('aria-expanded', String(open));
+        });
+    });
 })();
