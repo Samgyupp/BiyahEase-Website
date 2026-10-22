@@ -167,6 +167,51 @@
     const svg = section.querySelector('.road-svg');
     const roadBase = section.querySelector('.road-base');
 
+    // Real map background: flies to whichever town is currently active, in
+    // the same order as .road-towns (Sto. Tomas, Tanauan, Talisay, Malvar,
+    // Lipa). Leaflet + OpenStreetMap tiles need no API key — unlike
+    // Mapbox/Google static maps — which matters since this static site has
+    // no map API credentials wired in anywhere.
+    const TOWN_COORDS = [
+        [14.1078, 121.1413], // Sto. Tomas
+        [14.0853, 121.1496], // Tanauan
+        [13.9608, 121.0167], // Talisay
+        [14.0531, 121.1575], // Malvar
+        [13.9411, 121.1623], // Lipa
+    ];
+    const MAP_ZOOM = 13;
+    const mapEl = document.getElementById('discover-map');
+    let discoverMap = null;
+
+    if (mapEl && window.L) {
+        discoverMap = L.map(mapEl, {
+            center: TOWN_COORDS[0],
+            zoom: MAP_ZOOM,
+            zoomControl: false,
+            attributionControl: false,
+            dragging: false,
+            scrollWheelZoom: false,
+            doubleClickZoom: false,
+            boxZoom: false,
+            keyboard: false,
+            touchZoom: false,
+            tap: false,
+        });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            subdomains: 'abc',
+        }).addTo(discoverMap);
+    }
+
+    function flyToTown(index) {
+        if (!discoverMap || !TOWN_COORDS[index]) return;
+        if (reduceMotion.matches) {
+            discoverMap.setView(TOWN_COORDS[index], MAP_ZOOM);
+        } else {
+            discoverMap.flyTo(TOWN_COORDS[index], MAP_ZOOM, { duration: 1.4 });
+        }
+    }
+
     // Road geometry in stage units (stage is 1000 wide); values come from CSS so each breakpoint can differ
     const CENTER_X = 500;
     let geo = null;
@@ -285,6 +330,7 @@
                 else b.removeAttribute('aria-current');
             });
             status.textContent = 'Now showing ' + buttons[active].textContent;
+            flyToTown(active);
         }
 
         hint.classList.toggle('is-hidden', target > 0.15);
@@ -342,11 +388,16 @@
         readGeometry();
         onScroll();
         layout();
+        if (discoverMap) discoverMap.invalidateSize();
     });
 
     readGeometry();
     target = current = progressToPosition(scrollProgress());
     layout();
+
+    // The map's container may not have had its final pinned size yet on the
+    // very first paint — nudge Leaflet to re-measure once layout settles.
+    if (discoverMap) requestAnimationFrame(function () { discoverMap.invalidateSize(); });
 })();
 
 // About page: stat numbers count up from 0 once scrolled into view
@@ -417,4 +468,39 @@
 
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
+})();
+
+// Feedback form: builds a ready-to-send Gmail draft from the entered fields
+// instead of submitting anywhere — this is the site's one single path to
+// reach the team, so Contact Us just shows the email address as plain text
+// instead of duplicating it with its own button.
+(function () {
+    const form = document.getElementById('feedback-form');
+    if (!form) return;
+
+    const note = document.getElementById('feedback-note');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        if (!form.reportValidity()) return;
+
+        const name = form.elements['name'].value.trim();
+        const email = form.elements['email'].value.trim();
+        const message = form.elements['message'].value.trim();
+
+        const subject = 'BiyahEase Feedback from ' + name;
+        const body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+
+        const url = 'https://mail.google.com/mail/?view=cm&fs=1'
+            + '&to=' + encodeURIComponent('biyahease2026@gmail.com')
+            + '&su=' + encodeURIComponent(subject)
+            + '&body=' + encodeURIComponent(body);
+
+        window.open(url, '_blank', 'noopener');
+
+        if (note) {
+            note.textContent = 'Opening Gmail in a new tab — just hit send there to finish.';
+        }
+    });
 })();

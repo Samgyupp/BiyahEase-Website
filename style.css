@@ -181,6 +181,32 @@ img {
     box-shadow: 0 6px 14px rgba(0, 0, 0, 0.1);
 }
 
+.play-icon {
+    position: relative;
+    flex-shrink: 0;
+    display: block;
+    width: 28px;
+    height: 28px;
+}
+
+.play-icon-app {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 9px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.18);
+}
+
+.play-icon-badge {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #fff;
+}
+
 .store-text {
     display: flex;
     flex-direction: column;
@@ -1102,6 +1128,35 @@ img {
     align-items: center;
     padding-top: calc(80 * var(--u));
     overflow: hidden;
+}
+
+/* Real OpenStreetMap tiles behind the road, flying to whichever locality is
+   currently active. Desaturated + tinted so it reads as texture, not a
+   competing interactive map, and never intercepts scroll/clicks. */
+.discover-map {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    filter: saturate(0.5) brightness(1.15) hue-rotate(-6deg);
+    pointer-events: none;
+}
+
+.discover-map .leaflet-control-container {
+    display: none;
+}
+
+.discover-map-fade {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background: linear-gradient(to bottom,
+        var(--mint-bg) 0%,
+        rgba(234, 255, 251, 0.45) 10%,
+        rgba(234, 255, 251, 0.3) 22%,
+        rgba(234, 255, 251, 0.35) 60%,
+        rgba(234, 255, 251, 0.65) 85%,
+        var(--mint-bg) 100%);
+    pointer-events: none;
 }
 
 .discover-swirl {
@@ -2409,3 +2464,97 @@ img {
     stroke-linecap: round;
     stroke-linejoin: round;
 }
+
+/* Contact / feedback form */
+
+.legal-note {
+    font-size: 12.5px;
+    color: rgba(255, 255, 255, 0.5);
+    margin: 20px 0 0;
+}
+
+.legal-email {
+    display: inline-block;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--teal);
+    margin: 18px 0 0;
+}
+
+.feedback-form {
+    display: grid;
+    gap: 16px;
+    max-width: 480px;
+    margin-top: 20px;
+}
+
+.feedback-field {
+    display: grid;
+    gap: 6px;
+}
+
+.feedback-field label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.feedback-field input,
+.feedback-field textarea {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    border-radius: 10px;
+    padding: 11px 14px;
+    resize: vertical;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.feedback-field input::placeholder,
+.feedback-field textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.feedback-field input:focus,
+.feedback-field textarea:focus {
+    outline: none;
+    border-color: var(--teal);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Chrome (and most Chromium browsers) force a light background on
+   autofilled fields that normal `background` can't override — this is the
+   standard workaround: fake the dark fill with a huge inset box-shadow and
+   force the text/caret color back to white. */
+.feedback-field input:-webkit-autofill,
+.feedback-field input:-webkit-autofill:hover,
+.feedback-field input:-webkit-autofill:focus {
+    -webkit-text-fill-color: #fff;
+    -webkit-box-shadow: 0 0 0 1000px #1d3835 inset;
+    box-shadow: 0 0 0 1000px #1d3835 inset;
+    caret-color: #fff;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+.feedback-field input:invalid:not(:placeholder-shown),
+.feedback-field textarea:invalid:not(:placeholder-shown) {
+    border-color: #e0725c;
+}
+
+.feedback-form .btn-learn {
+    justify-self: start;
+    border: none;
+    cursor: pointer;
+}
+
+.feedback-note {
+    font-size: 13px;
+    color: var(--teal);
+    margin: -4px 0 0;
+    min-height: 1em;
+}
+

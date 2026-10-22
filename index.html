@@ -8,8 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
     <link rel="stylesheet" href="style.css">
     <script>document.documentElement.classList.add('js');</script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 </head>
 <body>
     <header class="navbar">
@@ -189,18 +191,16 @@
                                 <article class="step-card card-face card-face--front">
                                     <div class="step-art step-art--download">
                                         <img src="Image/Biyacon.png" alt="" class="art-appicon">
-                                        <svg class="art-play" viewBox="0 0 512 512" aria-hidden="true">
-                                            <path fill="#00d4ff" d="M99 11c-9 6-14 16-14 29v432c0 13 5 23 14 29l245-245L99 11z"/>
-                                            <path fill="#ffe000" d="M344 211l-70-41L99 11c-4 3-8 6-10 11l255 234z"/>
-                                            <path fill="#ff3a44" d="M274 256L89 466c2 5 6 8 10 11l175-159 70-41-70-21z"/>
-                                            <path fill="#00f076" d="M413 229l-69-41-70 68 70 68 69-41c19-11 19-43 0-54z"/>
+                                        <svg class="art-play" viewBox="0 0 24 24" aria-hidden="true">
+                                            <circle cx="12" cy="12" r="12" fill="#1cb6ac"/>
+                                            <path d="M12 6v8m0 0l-3-3m3 3l3-3M6 17h12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
                                         </svg>
                                         <img src="Image/Biya-Icons/6.png" alt="Biya waving hi" class="art-owl">
                                     </div>
                                     <div class="step-body">
                                         <svg class="step-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0l-4.5-4.5M12 15l4.5-4.5M5 19h14"/></svg>
                                         <h3>Download the app</h3>
-                                        <p>Get BiyahEase on Google Play and start your travel experience.</p>
+                                        <p>Download the BiyahEase APK and start your travel experience.</p>
                                     </div>
                                 </article>
                                 <div class="step-card card-face card-face--back card-back" aria-hidden="true">
@@ -266,6 +266,8 @@
     <!-- Scroll-driven road: the section pins while scrolling turns the road through each town -->
     <section class="discover" id="discover" aria-labelledby="discover-title">
         <div class="discover-sticky">
+            <div id="discover-map" class="discover-map" aria-hidden="true"></div>
+            <div class="discover-map-fade" aria-hidden="true"></div>
             <img src="Image/Swirl.png" alt="" class="section-swirl swirl-left discover-swirl" aria-hidden="true">
 
             <div class="discover-head">
@@ -329,19 +331,20 @@
             <h2 class="get-app-title" id="get-app-title" data-reveal>Commute anytime <br>with ease</h2>
 
             <div class="get-app-cta" data-reveal style="--reveal-delay: 120ms">
-                <a href="#" class="btn-store" aria-label="Get it on Google Play">
-                    <svg class="play-icon" viewBox="0 0 512 512" width="26" height="26" aria-hidden="true">
-                        <path fill="#00d4ff" d="M99 11c-9 6-14 16-14 29v432c0 13 5 23 14 29l245-245L99 11z"/>
-                        <path fill="#ffe000" d="M344 211l-70-41L99 11c-4 3-8 6-10 11l255 234z"/>
-                        <path fill="#ff3a44" d="M274 256L89 466c2 5 6 8 10 11l175-159 70-41-70-21z"/>
-                        <path fill="#00f076" d="M413 229l-69-41-70 68 70 68 69-41c19-11 19-43 0-54z"/>
-                    </svg>
+                <a href="public/BiyahEase-1.0.0-v3.apk" download class="btn-store" aria-label="Download the BiyahEase APK">
+                    <span class="play-icon">
+                        <img src="Image/Biyacon.png" alt="" class="play-icon-app">
+                        <svg class="play-icon-badge" viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="12" cy="12" r="12" fill="#1cb6ac"/>
+                            <path d="M12 6v8m0 0l-3-3m3 3l3-3M6 17h12" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </span>
                     <span class="store-text">
-                        <span class="small">GET IT ON</span>
-                        <span class="big">Google Play</span>
+                        <span class="small">DOWNLOAD THE</span>
+                        <span class="big">BiyahEase APK</span>
                     </span>
                 </a>
-                <a href="#" class="btn-webapp">Open Web App</a>
+                <a href="https://biyahease-app.vercel.app/" class="btn-webapp" target="_blank" rel="noopener">Open Web App</a>
             </div>
 
             <p class="get-app-desc" data-reveal style="--reveal-delay: 200ms">BiyahEase makes traveling easier! Discover destinations, find routes, check fares, and explore places with ease—all in one app.</p>
@@ -388,7 +391,7 @@
             <div class="footer-col">
                 <h3>Get the App</h3>
                 <ul>
-                    <li><a href="#">Google Play</a></li>
+                    <li><a href="public/BiyahEase-1.0.0-v3.apk" download>Download APK</a></li>
                     <li><a href="#">Web App for iOS users</a></li>
                 </ul>
             </div>

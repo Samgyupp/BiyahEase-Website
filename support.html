@@ -173,13 +173,29 @@
         <section id="contact" class="legal-section">
             <h2>Contact Us</h2>
             <p>Have a question about BiyahEase, the research behind it, or how your data is handled? Reach out directly — we're a small student team and read every message.</p>
-            <a href="mailto:biyahease2026@gmail.com" class="btn-learn legal-btn">Email the team</a>
+            <p class="legal-email">biyahease2026@gmail.com</p>
         </section>
 
         <section id="feedback" class="legal-section">
             <h2>Send Feedback</h2>
-            <p>Found a landmark that's moved, a fare that's changed, or a destination we should add? Your feedback directly improves the accuracy of the app for other commuters.</p>
-            <a href="mailto:biyahease2026@gmail.com?subject=BiyahEase%20Feedback" class="btn-learn legal-btn">Send feedback</a>
+            <p>Found a landmark that's moved, a fare that's changed, or a destination we should add? Fill this in — it opens a ready-to-send draft in Gmail, addressed straight to the team.</p>
+
+            <form class="feedback-form" id="feedback-form" novalidate>
+                <div class="feedback-field">
+                    <label for="fb-name">Your name</label>
+                    <input type="text" id="fb-name" name="name" placeholder="Juan Dela Cruz" autocomplete="name" required>
+                </div>
+                <div class="feedback-field">
+                    <label for="fb-email">Your email</label>
+                    <input type="email" id="fb-email" name="email" placeholder="you@email.com" autocomplete="email" required>
+                </div>
+                <div class="feedback-field">
+                    <label for="fb-message">Your feedback</label>
+                    <textarea id="fb-message" name="message" rows="4" placeholder="Tell us what's on your mind..." required></textarea>
+                </div>
+                <button type="submit" class="btn-learn legal-btn" id="feedback-submit">Send Feedback via Gmail</button>
+                <p class="feedback-note" id="feedback-note" role="status" aria-live="polite"></p>
+            </form>
         </section>
     </main>
 
