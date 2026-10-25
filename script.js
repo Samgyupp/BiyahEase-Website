@@ -504,3 +504,44 @@
         }
     });
 })();
+
+// Infomercial: load the YouTube player only when asked, and tilt the frame toward the cursor
+(function () {
+    const frame = document.querySelector('.promo-frame');
+    if (!frame) return;
+    const poster = frame.querySelector('.promo-poster');
+    const videoId = frame.dataset.videoId;
+
+    function play() {
+        if (frame.classList.contains('is-playing')) return;
+        const iframe = document.createElement('iframe');
+        iframe.src = 'https://www.youtube-nocookie.com/embed/' + videoId + '?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+        iframe.title = 'BiyahEase infomercial';
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+        iframe.allowFullscreen = true;
+        frame.classList.add('is-playing');
+        frame.style.setProperty('--tilt-x', '0deg');
+        frame.style.setProperty('--tilt-y', '0deg');
+        poster.replaceWith(iframe);
+        iframe.focus();
+    }
+
+    poster.addEventListener('click', play);
+
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const finePointer = window.matchMedia('(hover: hover) and (pointer: fine)');
+
+    frame.addEventListener('pointermove', function (e) {
+        if (reduceMotion.matches || !finePointer.matches || frame.classList.contains('is-playing')) return;
+        const rect = frame.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+        frame.style.setProperty('--tilt-y', (x * 10).toFixed(2) + 'deg');
+        frame.style.setProperty('--tilt-x', (-y * 8).toFixed(2) + 'deg');
+    });
+
+    frame.addEventListener('pointerleave', function () {
+        frame.style.setProperty('--tilt-x', '0deg');
+        frame.style.setProperty('--tilt-y', '0deg');
+    });
+})();
