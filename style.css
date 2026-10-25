@@ -683,7 +683,7 @@ img {
 .promo-play svg {
     width: 42%;
     height: 42%;
-    margin-left: 8%;
+    display: block;
     fill: currentColor;
 }
 
@@ -746,42 +746,13 @@ img {
     max-width: 420px;
 }
 
-.promo-eyebrow {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 14px;
-    border-radius: var(--radius-pill);
-    background: #fff;
-    border: 1px solid #d5e6e3;
-    color: var(--teal-dark);
-    font-size: 13px;
-    font-weight: 600;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-}
-
-.promo-eyebrow-dot {
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: #ff5a5a;
-    box-shadow: 0 0 0 0 rgba(255, 90, 90, 0.6);
-    animation: promo-live 1.8s ease-out infinite;
-}
-
-@keyframes promo-live {
-    to {
-        box-shadow: 0 0 0 8px rgba(255, 90, 90, 0);
-    }
-}
-
 .promo-title {
     font-family: 'Baloo 2', cursive;
     font-weight: 800;
     font-size: clamp(28px, 3.4vw, 40px);
     line-height: 1.15;
     color: var(--navy);
-    margin: 14px 0 10px;
+    margin: 0 0 10px;
 }
 
 .promo-title .accent-teal {
@@ -887,8 +858,7 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
     .promo-play::before,
-    .promo-play::after,
-    .promo-eyebrow-dot {
+    .promo-play::after {
         animation: none;
     }
 
